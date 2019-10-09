@@ -13,6 +13,11 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
 
+    CACHE_TYPE = 'redis'
+    CACHE_KEY_PREFIX = 'flask_cookie_'
+    # redis://user:password@localhost:6379/0
+    CACHE_REDIS_URL = os.environ.get('CACHE_REDIS_URL')
+
 
 class ProdConfig(Config):
     """Production configuration."""
@@ -24,3 +29,7 @@ class DevConfig(Config):
     """Development configuration."""
     ENV = 'development'
     DEBUG = True
+
+    SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://root:@localhost/test?charset=utf8mb4"
+
+    CACHE_REDIS_URL = 'redis://root:@localhost:6379/0'
