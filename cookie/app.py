@@ -1,5 +1,7 @@
 from flask import Flask
 
+from cookie.extensions import db, migrate
+
 
 def create_app(config):
     app = Flask(__name__)
@@ -13,7 +15,8 @@ def create_app(config):
 
 
 def register_extensions(app):
-    pass
+    db.init_app(app)
+    migrate.init_app(app, db)
 
 
 def register_blueprints(app):
@@ -29,6 +32,7 @@ def register_shell_context(app):
     def shell_context():
         return {
             'app': app,
+            'db': db,
         }
 
     app.shell_context_processor(shell_context)

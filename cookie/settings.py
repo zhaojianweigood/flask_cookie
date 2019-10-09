@@ -11,6 +11,7 @@ class Config(object):
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
 
 
 class ProdConfig(Config):
