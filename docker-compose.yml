@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  uwsgi:
+    container_name: flask_cookie
+    image: xxx.aliyuncs.com/xxx/flask_cookie:prod
+    ports:
+    - "5000:5000"
+    volumes:
+    - .:/data
+    restart: always
