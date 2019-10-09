@@ -37,3 +37,5 @@ Flask-SocketIO 建立实时双向通信
 Flask-OAuthlib 实现第三方登录
 
 Flask-Assets 优化静态资源
+
+flask_bcrypt 可用来用户密码加密解密
